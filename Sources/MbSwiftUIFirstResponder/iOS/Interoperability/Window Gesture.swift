@@ -23,7 +23,9 @@ final class FirstResponderTapGesture: UITapGestureRecognizer, UIGestureRecognize
             let locationInWindow = firstTouch.location(in: nil)
   
             for observer in observers {
-                observer.object?.frDidTapInWindow(at: locationInWindow)
+                withAnimation {
+                    observer.object?.frDidTapInWindow(at: locationInWindow)
+                }
             }
         }
     }
